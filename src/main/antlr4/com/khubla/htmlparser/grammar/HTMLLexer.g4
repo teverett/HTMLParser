@@ -37,7 +37,11 @@ HTML_COMMENT
     : '<!--' .*? '-->'
     ;
 
-HTML_DTD 
+CDATA       
+    : '<![CDATA[' .*? ']]>' 
+    ;
+
+DTD 
     : '<!' .*? '>'
     ;
 

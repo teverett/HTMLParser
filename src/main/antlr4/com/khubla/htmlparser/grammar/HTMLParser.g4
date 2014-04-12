@@ -36,7 +36,7 @@ parser grammar HTMLParser;
 options { tokenVocab=HTMLLexer; }
 
 htmlDocument    
-    : HTML_DTD? htmlElements*
+    : SEA_WS? DTD? htmlElements*
     ;
 
 htmlElements
@@ -49,7 +49,7 @@ htmlElement
     ;
 
 htmlContent     
-    : htmlChardata? ((htmlElement | htmlReference | htmlComment) htmlChardata?)*
+    : htmlChardata? ((htmlElement | htmlReference | xhtmlCDATA | htmlComment) htmlChardata?)*
     ;
 
 htmlReference   
@@ -73,6 +73,10 @@ htmlMisc
 
 htmlComment
     : HTML_COMMENT
+    ;
+
+xhtmlCDATA
+    : CDATA
     ;
 
 
