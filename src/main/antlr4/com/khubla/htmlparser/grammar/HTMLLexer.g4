@@ -26,11 +26,6 @@
  THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-//
-//
-// HTML Grammar based on the ANTLR4 XML Grammar by Terence Parr
-//
-//
 lexer grammar  HTMLLexer;
 
 HTML_COMMENT    
@@ -45,74 +40,81 @@ DTD
     : '<!' .*? '>'
     ;
 
-HTML_EntityRef  
-    : '&' HTML_Name ';' 
-    ;
-
-HTML_CharRef    
-    : '&#' DIGIT+ ';'
-    | '&#x' HEXDIGIT+ ';'
+SCRIPTLET 
+    : '<?' .*? '?>'
+    | '<%' .*? '%>'
     ;
 
 SEA_WS
     :  (' '|'\t'|'\r'? '\n')+ 
     ;
 
-OPEN
-    : '<' -> pushMode(INSIDE)
+SCRIPT_OPEN
+    : '<script' .*? '>' ->pushMode(SCRIPT)
     ;
 
+STYLE_OPEN
+    : '<style' .*? '>'  ->pushMode(STYLE)
+    ;
+
+HREF_OPEN
+     : '<a href'.*? '>'  ->pushMode(HREF)
+     ;
+
+TAG_OPEN
+    : '<' -> pushMode(TAG)
+    ;
+            
 HTML_TEXT
-    : ~[<&]+ 
-    ;        // match any 16 bit char other than < and &
+    : ~'<'+
+    ;   
+       
+mode TAG;
 
-mode INSIDE;
-
-HTML_CLOSE           
+TAG_CLOSE      
     : '>' -> popMode
     ;
 
-HTML_SLASH_CLOSE     
+TAG_SLASH_CLOSE     
     : '/>' -> popMode
     ;
 
-HTML_SLASH      
+TAG_SLASH      
     : '/' 
     ;
 
-HTML_EQUALS     
+TAG_EQUALS     
     : '=' 
     ;
 
-HTML_STRING     
+TAG_VALUE     
     : '"' ~[<"]* '"'
-    |   '\'' ~[<']* '\''
+    | '\'' ~[<']* '\''
+    | '#' [0-9a-fA-F]+
+    | [0-9]+ '%'  
     ;
 
-HTML_Name       
-    :
-    NameStartChar NameChar* 
+TAG_NAME      
+    : TAG_NameStartChar TAG_NameChar* 
     ;
 
-S
+TAG_WHITESPACE
     : [ \t\r\n] -> skip 
     ;
 
 fragment
 HEXDIGIT        
-    :   
-    [a-fA-F0-9]
+    : [a-fA-F0-9]
     ;
 
 fragment
 DIGIT           
-    :   
-    [0-9]
+    : [0-9]
     ;
 
 fragment
-NameChar        
-    : NameStartChar
+TAG_NameChar        
+    : TAG_NameStartChar
     | '-' 
     | '_' 
     | '.' 
@@ -123,11 +125,45 @@ NameChar
     ;
 
 fragment
-NameStartChar
+TAG_NameStartChar
     :   [:a-zA-Z]
     |   '\u2070'..'\u218F' 
     |   '\u2C00'..'\u2FEF' 
     |   '\u3001'..'\uD7FF' 
     |   '\uF900'..'\uFDCF' 
     |   '\uFDF0'..'\uFFFD'
+    ;
+
+mode SCRIPT;
+
+SCRIPT_BODY
+    : .*? '</script>' -> popMode
+    ;
+
+SCRIPT_SHORT_BODY
+    : .*? '</>' -> popMode
+    ;
+
+mode STYLE;
+
+STYLE_BODY
+    : .*? '</style>' -> popMode
+    ;
+
+STYLE_SHORT_BODY
+    : .*? '</>' -> popMode
+    ;
+
+mode HREF;
+
+HREF_BODY
+    : .*? '</a>' -> popMode
+    ;
+
+HREF_SHORT_BODY
+    : .*? '</>' -> popMode
+    ;
+
+HREF_UNCLOSED
+    : .*? '>' -> popMode
     ;

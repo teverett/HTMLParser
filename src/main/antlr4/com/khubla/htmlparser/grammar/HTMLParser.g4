@@ -26,17 +26,12 @@
  THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 */
 
-//
-//
-// HTML Grammar based on the ANTLR4 XML Grammar by Terence Parr
-//
-//
 parser grammar HTMLParser;
 
 options { tokenVocab=HTMLLexer; }
 
 htmlDocument    
-    : SEA_WS? DTD? htmlElements*
+    : SEA_WS? dtd? htmlElements*
     ;
 
 htmlElements
@@ -44,21 +39,34 @@ htmlElements
     ;
 
 htmlElement     
-    : '<' HTML_Name htmlAttribute* '>' htmlContent '<' HTML_SLASH HTML_Name '>'
-    | '<' HTML_Name htmlAttribute* '/>'
+    : TAG_OPEN htmlTagName htmlAttribute* TAG_CLOSE htmlContent TAG_OPEN TAG_SLASH htmlTagName TAG_CLOSE
+    | TAG_OPEN htmlTagName htmlAttribute* TAG_SLASH_CLOSE
+    | TAG_OPEN htmlTagName htmlAttribute* TAG_CLOSE
+    | scriptlet
+    | script
+    | style
+    | href
     ;
 
 htmlContent     
-    : htmlChardata? ((htmlElement | htmlReference | xhtmlCDATA | htmlComment) htmlChardata?)*
-    ;
-
-htmlReference   
-    : HTML_EntityRef 
-    | HTML_CharRef
+    : htmlChardata? ((htmlElement | xhtmlCDATA | htmlComment) htmlChardata?)*
     ;
 
 htmlAttribute   
-    : HTML_Name HTML_EQUALS HTML_STRING
+    : htmlAttributeName TAG_EQUALS htmlAttributeValue
+    | htmlAttributeName
+    ;
+
+htmlAttributeName
+    : TAG_NAME
+    ;
+
+htmlAttributeValue
+    : TAG_VALUE
+    ;
+
+htmlTagName
+    : TAG_NAME
     ;
 
 htmlChardata    
@@ -79,4 +87,22 @@ xhtmlCDATA
     : CDATA
     ;
 
+dtd
+    : DTD
+    ;
 
+scriptlet
+    : SCRIPTLET
+    ;
+
+script
+    : SCRIPT_OPEN ( SCRIPT_BODY | SCRIPT_SHORT_BODY)
+    ;
+
+style
+    : STYLE_OPEN ( STYLE_BODY | STYLE_SHORT_BODY)
+    ;
+
+href
+    : HREF_OPEN ( HREF_BODY | HREF_SHORT_BODY | HREF_UNCLOSED)
+    ;
