@@ -58,7 +58,7 @@ STYLE_OPEN
     ;
 
 HREF_OPEN
-     : '<a href'.*? '>'  ->pushMode(HREF)
+     : '<a href' .*? '>'  ->pushMode(HREF)
      ;
 
 TAG_OPEN
@@ -69,6 +69,9 @@ HTML_TEXT
     : ~'<'+
     ;   
        
+//
+// tag declarations
+//
 mode TAG;
 
 TAG_CLOSE      
@@ -83,15 +86,11 @@ TAG_SLASH
     : '/' 
     ;
 
+//
+// lexing mode for attribute values
+//
 TAG_EQUALS     
-    : '=' 
-    ;
-
-TAG_VALUE     
-    : '"' ~[<"]* '"'
-    | '\'' ~[<']* '\''
-    | '#' [0-9a-fA-F]+
-    | [0-9]+ '%'  
+    : '=' -> pushMode(ATTVALUE)
     ;
 
 TAG_NAME      
@@ -134,6 +133,9 @@ TAG_NameStartChar
     |   '\uFDF0'..'\uFFFD'
     ;
 
+//
+// <scripts>
+//
 mode SCRIPT;
 
 SCRIPT_BODY
@@ -144,6 +146,9 @@ SCRIPT_SHORT_BODY
     : .*? '</>' -> popMode
     ;
 
+//
+// <styles>
+//
 mode STYLE;
 
 STYLE_BODY
@@ -154,6 +159,9 @@ STYLE_SHORT_BODY
     : .*? '</>' -> popMode
     ;
 
+//
+// hrefs
+//
 mode HREF;
 
 HREF_BODY
@@ -167,3 +175,37 @@ HREF_SHORT_BODY
 HREF_UNCLOSED
     : .*? '>' -> popMode
     ;
+
+//
+// attribute values
+//
+mode ATTVALUE;
+
+ATTVALUE_VALUE     
+    : (DOUBLE_QUOTE_STRING
+    | SINGLE_QUOTE_STRING
+    | ATTCHARS
+    | HEXCHARS
+    | DECCHARS) -> popMode
+    ;
+
+fragment ATTCHARS
+    : [+,0-9a-zA-Z]+
+    ;
+
+fragment HEXCHARS
+    : '#' [0-9a-fA-F]+
+    ;
+
+fragment DECCHARS
+    : [0-9]+ '%'?
+    ;
+
+fragment DOUBLE_QUOTE_STRING
+    : '"' ~[<"]* '"'
+    ;
+
+fragment SINGLE_QUOTE_STRING
+    : '\'' ~[<']* '\''
+    ;
+
