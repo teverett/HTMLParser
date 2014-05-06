@@ -11,7 +11,7 @@ import com.khubla.htmlparser.grammar.HTMLParserListener;
  * @author tom
  */
 public class TestListener {
-   @Test
+   @Test(enabled = false)
    public void test1() {
       try {
          final InputStream inputStream = TestTreeWalk.class.getResourceAsStream("/example1.html");

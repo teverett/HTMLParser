@@ -5,7 +5,6 @@ import org.antlr.v4.runtime.tree.ErrorNode;
 import org.antlr.v4.runtime.tree.TerminalNode;
 
 import com.khubla.htmlparser.grammar.HTMLParser.DtdContext;
-import com.khubla.htmlparser.grammar.HTMLParser.HrefContext;
 import com.khubla.htmlparser.grammar.HTMLParser.HtmlAttributeContext;
 import com.khubla.htmlparser.grammar.HTMLParser.HtmlAttributeNameContext;
 import com.khubla.htmlparser.grammar.HTMLParser.HtmlAttributeValueContext;
@@ -99,7 +98,7 @@ public class ExampleListener implements HTMLParserListener {
 
    @Override
    public void enterScript(ScriptContext ctx) {
-      System.out.println(ctx.getText());
+      // TODO Auto-generated method stub
    }
 
    @Override
@@ -179,7 +178,7 @@ public class ExampleListener implements HTMLParserListener {
 
    @Override
    public void enterStyle(StyleContext ctx) {
-      System.out.println(ctx.getText());
+      // TODO Auto-generated method stub
    }
 
    @Override
@@ -204,16 +203,6 @@ public class ExampleListener implements HTMLParserListener {
 
    @Override
    public void exitDtd(DtdContext ctx) {
-      // TODO Auto-generated method stub
-   }
-
-   @Override
-   public void enterHref(HrefContext ctx) {
-      // TODO Auto-generated method stub
-   }
-
-   @Override
-   public void exitHref(HrefContext ctx) {
       // TODO Auto-generated method stub
    }
 }

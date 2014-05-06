@@ -7,7 +7,7 @@
 	<name>khubla.com HTML parser</name>
 	<version>1.0</version>
 	<properties>
-		<antlr.version>4.2</antlr.version>
+		<antlr.version>4.2.2</antlr.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -31,8 +31,14 @@
 				<version>${antlr.version}</version>
 				<configuration>
 					<grammars>HTMLParser.g4</grammars>
-					<outputDirectory>src/main/java</outputDirectory>
 				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>antlr4</goal>
+						</goals>
+					</execution>
+				</executions>
 			</plugin>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
