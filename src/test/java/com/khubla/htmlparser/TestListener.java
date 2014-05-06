@@ -14,7 +14,7 @@ public class TestListener {
    @Test(enabled = false)
    public void test1() {
       try {
-         final InputStream inputStream = TestTreeWalk.class.getResourceAsStream("/example1.html");
+         final InputStream inputStream = TestTreeWalk.class.getResourceAsStream("/script1.html");
          final HTMLParserListener htmlParserListener = new ExampleListener();
          HTMLDocumentParser.parse(inputStream, htmlParserListener);
       } catch (final Exception e) {

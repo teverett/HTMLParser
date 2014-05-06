@@ -27,12 +27,172 @@ import com.khubla.htmlparser.grammar.HTMLParserListener;
  */
 public class ExampleListener implements HTMLParserListener {
    @Override
+   public void enterDtd(DtdContext ctx) {
+      // TODO Auto-generated method stub
+   }
+
+   @Override
    public void enterEveryRule(ParserRuleContext arg0) {
       // TODO Auto-generated method stub
    }
 
    @Override
+   public void enterHtmlAttribute(HtmlAttributeContext ctx) {
+      // TODO Auto-generated method stub
+   }
+
+   @Override
+   public void enterHtmlAttributeName(HtmlAttributeNameContext ctx) {
+      // TODO Auto-generated method stub
+   }
+
+   @Override
+   public void enterHtmlAttributeValue(HtmlAttributeValueContext ctx) {
+      // TODO Auto-generated method stub
+   }
+
+   @Override
+   public void enterHtmlChardata(HtmlChardataContext ctx) {
+      // TODO Auto-generated method stub
+   }
+
+   @Override
+   public void enterHtmlComment(HtmlCommentContext ctx) {
+      // TODO Auto-generated method stub
+   }
+
+   @Override
+   public void enterHtmlContent(HtmlContentContext ctx) {
+      // TODO Auto-generated method stub
+   }
+
+   @Override
+   public void enterHtmlDocument(HtmlDocumentContext ctx) {
+      // TODO Auto-generated method stub
+   }
+
+   @Override
+   public void enterHtmlElement(HtmlElementContext ctx) {
+      // TODO Auto-generated method stub
+   }
+
+   @Override
+   public void enterHtmlElements(HtmlElementsContext ctx) {
+      // TODO Auto-generated method stub
+   }
+
+   @Override
+   public void enterHtmlMisc(HtmlMiscContext ctx) {
+      // TODO Auto-generated method stub
+   }
+
+   @Override
+   public void enterHtmlTagName(HtmlTagNameContext ctx) {
+      // TODO Auto-generated method stub
+   }
+
+   @Override
+   public void enterScript(ScriptContext ctx) {
+      // TODO Auto-generated method stub
+   }
+
+   @Override
+   public void enterScriptlet(ScriptletContext ctx) {
+      // TODO Auto-generated method stub
+   }
+
+   @Override
+   public void enterStyle(StyleContext ctx) {
+      // TODO Auto-generated method stub
+   }
+
+   @Override
+   public void enterXhtmlCDATA(XhtmlCDATAContext ctx) {
+      // TODO Auto-generated method stub
+   }
+
+   @Override
+   public void exitDtd(DtdContext ctx) {
+      // TODO Auto-generated method stub
+   }
+
+   @Override
    public void exitEveryRule(ParserRuleContext arg0) {
+      // TODO Auto-generated method stub
+   }
+
+   @Override
+   public void exitHtmlAttribute(HtmlAttributeContext ctx) {
+      // TODO Auto-generated method stub
+   }
+
+   @Override
+   public void exitHtmlAttributeName(HtmlAttributeNameContext ctx) {
+      // TODO Auto-generated method stub
+   }
+
+   @Override
+   public void exitHtmlAttributeValue(HtmlAttributeValueContext ctx) {
+      // TODO Auto-generated method stub
+   }
+
+   @Override
+   public void exitHtmlChardata(HtmlChardataContext ctx) {
+      // TODO Auto-generated method stub
+   }
+
+   @Override
+   public void exitHtmlComment(HtmlCommentContext ctx) {
+      // TODO Auto-generated method stub
+   }
+
+   @Override
+   public void exitHtmlContent(HtmlContentContext ctx) {
+      // TODO Auto-generated method stub
+   }
+
+   @Override
+   public void exitHtmlDocument(HtmlDocumentContext ctx) {
+      // TODO Auto-generated method stub
+   }
+
+   @Override
+   public void exitHtmlElement(HtmlElementContext ctx) {
+      // TODO Auto-generated method stub
+   }
+
+   @Override
+   public void exitHtmlElements(HtmlElementsContext ctx) {
+      // TODO Auto-generated method stub
+   }
+
+   @Override
+   public void exitHtmlMisc(HtmlMiscContext ctx) {
+      // TODO Auto-generated method stub
+   }
+
+   @Override
+   public void exitHtmlTagName(HtmlTagNameContext ctx) {
+      // TODO Auto-generated method stub
+   }
+
+   @Override
+   public void exitScript(ScriptContext ctx) {
+      // TODO Auto-generated method stub
+   }
+
+   @Override
+   public void exitScriptlet(ScriptletContext ctx) {
+      // TODO Auto-generated method stub
+   }
+
+   @Override
+   public void exitStyle(StyleContext ctx) {
+      // TODO Auto-generated method stub
+   }
+
+   @Override
+   public void exitXhtmlCDATA(XhtmlCDATAContext ctx) {
       // TODO Auto-generated method stub
    }
 
@@ -43,166 +203,6 @@ public class ExampleListener implements HTMLParserListener {
 
    @Override
    public void visitTerminal(TerminalNode arg0) {
-      // TODO Auto-generated method stub
-   }
-
-   @Override
-   public void enterHtmlAttributeValue(HtmlAttributeValueContext ctx) {
-      // TODO Auto-generated method stub
-   }
-
-   @Override
-   public void exitHtmlAttributeValue(HtmlAttributeValueContext ctx) {
-      // TODO Auto-generated method stub
-   }
-
-   @Override
-   public void enterXhtmlCDATA(XhtmlCDATAContext ctx) {
-      // TODO Auto-generated method stub
-   }
-
-   @Override
-   public void exitXhtmlCDATA(XhtmlCDATAContext ctx) {
-      // TODO Auto-generated method stub
-   }
-
-   @Override
-   public void enterHtmlDocument(HtmlDocumentContext ctx) {
-      // TODO Auto-generated method stub
-   }
-
-   @Override
-   public void exitHtmlDocument(HtmlDocumentContext ctx) {
-      // TODO Auto-generated method stub
-   }
-
-   @Override
-   public void enterHtmlTagName(HtmlTagNameContext ctx) {
-      // TODO Auto-generated method stub
-   }
-
-   @Override
-   public void exitHtmlTagName(HtmlTagNameContext ctx) {
-      // TODO Auto-generated method stub
-   }
-
-   @Override
-   public void enterHtmlMisc(HtmlMiscContext ctx) {
-      // TODO Auto-generated method stub
-   }
-
-   @Override
-   public void exitHtmlMisc(HtmlMiscContext ctx) {
-      // TODO Auto-generated method stub
-   }
-
-   @Override
-   public void enterScript(ScriptContext ctx) {
-      // TODO Auto-generated method stub
-   }
-
-   @Override
-   public void exitScript(ScriptContext ctx) {
-      // TODO Auto-generated method stub
-   }
-
-   @Override
-   public void enterScriptlet(ScriptletContext ctx) {
-      // TODO Auto-generated method stub
-   }
-
-   @Override
-   public void exitScriptlet(ScriptletContext ctx) {
-      // TODO Auto-generated method stub
-   }
-
-   @Override
-   public void enterHtmlContent(HtmlContentContext ctx) {
-      // TODO Auto-generated method stub
-   }
-
-   @Override
-   public void exitHtmlContent(HtmlContentContext ctx) {
-      // TODO Auto-generated method stub
-   }
-
-   @Override
-   public void enterHtmlAttributeName(HtmlAttributeNameContext ctx) {
-      // TODO Auto-generated method stub
-   }
-
-   @Override
-   public void exitHtmlAttributeName(HtmlAttributeNameContext ctx) {
-      // TODO Auto-generated method stub
-   }
-
-   @Override
-   public void enterHtmlElements(HtmlElementsContext ctx) {
-      // TODO Auto-generated method stub
-   }
-
-   @Override
-   public void exitHtmlElements(HtmlElementsContext ctx) {
-      // TODO Auto-generated method stub
-   }
-
-   @Override
-   public void enterHtmlElement(HtmlElementContext ctx) {
-      // TODO Auto-generated method stub
-   }
-
-   @Override
-   public void exitHtmlElement(HtmlElementContext ctx) {
-      // TODO Auto-generated method stub
-   }
-
-   @Override
-   public void enterHtmlAttribute(HtmlAttributeContext ctx) {
-      // TODO Auto-generated method stub
-   }
-
-   @Override
-   public void exitHtmlAttribute(HtmlAttributeContext ctx) {
-      // TODO Auto-generated method stub
-   }
-
-   @Override
-   public void enterHtmlComment(HtmlCommentContext ctx) {
-      // TODO Auto-generated method stub
-   }
-
-   @Override
-   public void exitHtmlComment(HtmlCommentContext ctx) {
-      // TODO Auto-generated method stub
-   }
-
-   @Override
-   public void enterStyle(StyleContext ctx) {
-      // TODO Auto-generated method stub
-   }
-
-   @Override
-   public void exitStyle(StyleContext ctx) {
-      // TODO Auto-generated method stub
-   }
-
-   @Override
-   public void enterHtmlChardata(HtmlChardataContext ctx) {
-      // TODO Auto-generated method stub
-   }
-
-   @Override
-   public void exitHtmlChardata(HtmlChardataContext ctx) {
-      // TODO Auto-generated method stub
-   }
-
-   @Override
-   public void enterDtd(DtdContext ctx) {
-      // TODO Auto-generated method stub
-   }
-
-   @Override
-   public void exitDtd(DtdContext ctx) {
       // TODO Auto-generated method stub
    }
 }
