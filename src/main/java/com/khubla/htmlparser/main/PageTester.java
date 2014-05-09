@@ -18,6 +18,7 @@ public class PageTester {
     */
    static public void main(String args[]) throws Exception {
       final String url = args[0];
+      System.out.println("Fetching " + url);
       final CloseableHttpClient httpclient = HttpClients.createDefault();
       final HttpGet httpGet = new HttpGet(url);
       final CloseableHttpResponse response = httpclient.execute(httpGet);
