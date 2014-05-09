@@ -15,17 +15,9 @@ import com.khubla.htmlparser.HTMLDocumentParser;
 public class PageTester {
    /**
     * main
-    * 
-    * @throws Exception
     */
    static public void main(String args[]) throws Exception {
-      /*
-       * the url
-       */
       final String url = args[0];
-      /*
-		 * 
-		 */
       final CloseableHttpClient httpclient = HttpClients.createDefault();
       final HttpGet httpGet = new HttpGet(url);
       final CloseableHttpResponse response = httpclient.execute(httpGet);
