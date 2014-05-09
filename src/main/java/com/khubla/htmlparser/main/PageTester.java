@@ -25,6 +25,7 @@ public class PageTester {
       InputStream inputStream = null;
       try {
          inputStream = response.getEntity().getContent();
+         System.out.println("Parsing " + url);
          HTMLDocumentParser.parse(inputStream);
       } finally {
          response.close();
