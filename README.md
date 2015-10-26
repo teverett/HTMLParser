@@ -30,3 +30,9 @@ Licensing
 HTMLParser is licensed under the [GPLv2](https://github.com/teverett/HTMLParser/blob/master/LICENSE)
 
 
+Travis Status
+---------
+
+<a href="https://travis-ci.org/teverett/HTMLParser"><img src="https://api.travis-ci.org/teverett/HTMLParser.png"></a>
+
+
