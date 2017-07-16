@@ -2,7 +2,7 @@ package com.khubla.htmlparser;
 
 import java.io.InputStream;
 
-import org.antlr.v4.runtime.ANTLRInputStream;
+import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.tree.ParseTreeWalker;
 
@@ -20,7 +20,7 @@ public class HTMLDocumentParser {
     */
    public static HtmlDocumentContext parse(InputStream inputStream) throws Exception {
       try {
-         final HTMLLexer htmlLexer = new HTMLLexer(new ANTLRInputStream(inputStream));
+         final HTMLLexer htmlLexer = new HTMLLexer(CharStreams.fromStream(inputStream));
          final CommonTokenStream tokens = new CommonTokenStream(htmlLexer);
          final HTMLParser htmlParser = new HTMLParser(tokens);
          return htmlParser.htmlDocument();
@@ -34,7 +34,7 @@ public class HTMLDocumentParser {
     */
    public static void parse(InputStream inputStream, HTMLParserListener htmlParserListener) throws Exception {
       try {
-         final HTMLLexer htmlLexer = new HTMLLexer(new ANTLRInputStream(inputStream));
+         final HTMLLexer htmlLexer = new HTMLLexer(CharStreams.fromStream(inputStream));
          final CommonTokenStream tokens = new CommonTokenStream(htmlLexer);
          final HTMLParser htmlParser = new HTMLParser(tokens);
          final HtmlDocumentContext htmlDocumentContext = htmlParser.htmlDocument();
