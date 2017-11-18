@@ -1,7 +1,21 @@
+[![Travis](https://travis-ci.org/teverett/HTMLParser.svg?branch=master)](https://travis-ci.org/teverett/HTMLParser)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/9ebea7ee219e4210bf17ac5f99b73303)](https://www.codacy.com/app/teverett/HTMLParser?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=teverett/HTMLParser&amp;utm_campaign=Badge_Grade)
+
 HTMLParser
 ==========
 
 A simple HTML Parser using [ANTLR4](http://www.antlr.org/)
+
+Maven Coordinates
+--------
+
+	<dependency>
+		<groupId>com.khubla.htmlparser</groupId>
+		<artifactId>htmlparser</artifactId>
+		<version>1.0</version>
+		<type>jar</type>
+		<scope>compile</scope>
+	</dependency>
 
 
 Fetching and Validating a Page
@@ -28,11 +42,4 @@ Licensing
 ---------
 
 HTMLParser is licensed under the [GPLv2](https://github.com/teverett/HTMLParser/blob/master/LICENSE)
-
-
-Travis Status
----------
-
-<a href="https://travis-ci.org/teverett/HTMLParser"><img src="https://api.travis-ci.org/teverett/HTMLParser.png"></a>
-
 
